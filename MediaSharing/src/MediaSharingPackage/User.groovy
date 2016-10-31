@@ -16,5 +16,15 @@ class User {
     def email
     def password
     def name
+    
+    def sql = Sql.newInstance('jdbc:mysql://localhost:3306/mediasharing', 'root', '', 'com.mysql.jdbc.Driver')
+    
+    def getUser(id) {
+        return sql.rows("SELECT * FROM user WHERE user.id="+id)[0]
+    }
+    
+    def string(str) {
+        return "\"" + str + "\"";
+    }
 }
 

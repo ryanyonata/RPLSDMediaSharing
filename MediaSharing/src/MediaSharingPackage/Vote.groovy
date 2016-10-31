@@ -14,5 +14,7 @@ class Vote {
     def media
     def user
     def value
+    
+    def sql = Sql.newInstance('jdbc:mysql://localhost:3306/mediasharing', 'root', '', 'com.mysql.jdbc.Driver')
 }
 

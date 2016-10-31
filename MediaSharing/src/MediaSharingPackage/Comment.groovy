@@ -15,5 +15,11 @@ class Comment {
     def user
     def media
     def comment_content
+    
+    def sql = Sql.newInstance('jdbc:mysql://localhost:3306/mediasharing', 'root', '', 'com.mysql.jdbc.Driver')
+    
+    def getComment(media) {
+        return sql.rows("SELECT * FROM comment WHERE comment.id_media="+media)
+    }
 }
 
