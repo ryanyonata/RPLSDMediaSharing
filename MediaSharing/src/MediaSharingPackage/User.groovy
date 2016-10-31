@@ -6,6 +6,9 @@
 
 package MediaSharingPackage
 
+import java.sql.*; 
+import groovy.sql.Sql
+
 /**
  *
  * @author ryanyonata
@@ -27,16 +30,17 @@ class User {
         return "\"" + str + "\"";
     }
     
-        def login(username, password){
-        String response = ""
-        response = sql.rows("SELECT password FROM user WHERE username="+username)
-        if (response == "") {
-            return "Username Invalid";
-        } else if (response == password){
-            return "Login Succes"
-        } else {
-            return "Password Invalid"
+    def login(username, password){
+        def response = "SELECT password FROM user WHERE username="+string(username)
+        sql.eachRow(response) { row ->
+            return string(row.password)
         }
+//        if (string(response).equals("")) {
+//            return "Username Invalid";
+//        } else if (string(response).equals(string(password))){
+//            return "Login Succes"
+//        } else {
+//            return "Password Invalid"
+//        }
     }
 }
-

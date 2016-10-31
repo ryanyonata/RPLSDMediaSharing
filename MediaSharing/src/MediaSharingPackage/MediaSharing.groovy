@@ -6,14 +6,14 @@
 
 package MediaSharingPackage
 
+import java.sql.*; 
+import groovy.sql.Sql
+
 /**
  *
  * @author ryanyonata
  */
 class MediaSharing {
     // Connect database
-    def dbConn = new DBAccess()
-    
-    
+    def dbConn = new DBAccess()    
 }
-

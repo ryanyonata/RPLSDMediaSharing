@@ -6,6 +6,9 @@
 
 package MediaSharingPackage
 
+import java.sql.*; 
+import groovy.sql.Sql
+
 /**
  *
  * @author ryanyonata
