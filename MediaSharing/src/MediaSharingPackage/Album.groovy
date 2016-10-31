@@ -11,6 +11,8 @@ package MediaSharingPackage
  * @author ryanyonata
  */
 class Album {
-	
+    def id
+    def title
+    def user
 }
 

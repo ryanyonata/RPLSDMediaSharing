@@ -11,6 +11,8 @@ package MediaSharingPackage
  * @author ryanyonata
  */
 class Vote {
-	
+    def media
+    def user
+    def value
 }
 

@@ -11,6 +11,8 @@ package MediaSharingPackage
  * @author ryanyonata
  */
 class Category {
-	
+    def id
+    def name
+    def description
 }
 

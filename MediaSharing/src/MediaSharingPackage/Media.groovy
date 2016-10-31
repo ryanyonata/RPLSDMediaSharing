@@ -11,6 +11,15 @@ package MediaSharingPackage
  * @author ryanyonata
  */
 class Media {
-	
+    def id
+    def title
+    def num_views
+    def user
+    def num_votes
+    def rating
+    def file_size
+    def url
+    def access_type
+    def category
 }
 

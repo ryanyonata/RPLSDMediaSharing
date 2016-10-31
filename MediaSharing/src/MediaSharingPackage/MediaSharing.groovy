@@ -11,6 +11,6 @@ package MediaSharingPackage
  * @author ryanyonata
  */
 class MediaSharing {
-	
+    
 }
 

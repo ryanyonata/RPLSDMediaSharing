@@ -11,6 +11,9 @@ package MediaSharingPackage
  * @author ryanyonata
  */
 class Comment {
-	
+    def id
+    def user
+    def media
+    def comment_content
 }
 

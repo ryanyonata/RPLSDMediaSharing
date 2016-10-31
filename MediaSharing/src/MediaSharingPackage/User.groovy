@@ -11,6 +11,10 @@ package MediaSharingPackage
  * @author ryanyonata
  */
 class User {
-	
+    def id
+    def username
+    def email
+    def password
+    def name
 }
 
