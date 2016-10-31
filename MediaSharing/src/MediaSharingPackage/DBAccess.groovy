@@ -31,7 +31,7 @@ class DBAccess {
     
     def addUser(username,password,email,name) {
         sql.connection.autoCommit = false
-        def sqlstr = "INSERT INTO user(username,password,email,name) VALUES " + "(${username},${password},${email},${name})"
+        def sqlstr = "INSERT INTO user(username,password,email,name) VALUES " + "(${string(username)},${string(password)},${string(email)},${string(name)})"
 	
         //def sql = "INSERT INTO eventID VALUES (" + "\"" + i + "\"" + ");";
         
@@ -93,6 +93,10 @@ class DBAccess {
             println("Transaction rollback")
         }	
         sql.close()
+    }
+    
+    def string(str) {
+        return "\"" + str + "\"";
     }
 }
 
