@@ -32,7 +32,9 @@ class DBAccess {
     def addUser(username,password,email,name) {
         sql.connection.autoCommit = false
         def sqlstr = "INSERT INTO user(username,password,email,name) VALUES " + "(${username},${password},${email},${name})"
-	  
+	
+        //def sql = "INSERT INTO eventID VALUES (" + "\"" + i + "\"" + ");";
+        
         try {
             sql.execute(sqlstr);
             sql.commit()
