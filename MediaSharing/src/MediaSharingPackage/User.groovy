@@ -33,14 +33,14 @@ class User {
     def login(username, password){
         def response = "SELECT password FROM user WHERE username="+string(username)
         sql.eachRow(response) { row ->
-            return string(row.password)
+            response = string(row.password)
         }
-//        if (string(response).equals("")) {
-//            return "Username Invalid";
-//        } else if (string(response).equals(string(password))){
-//            return "Login Succes"
-//        } else {
-//            return "Password Invalid"
-//        }
+        if (string(response).equals("")) {
+            return "Username Invalid";
+        } else if (response.equals(string(password))){
+            return "Login Success"
+        } else {
+            return "Password Invalid"
+        }
     }
 }
