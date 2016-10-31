@@ -11,6 +11,9 @@ package MediaSharingPackage
  * @author ryanyonata
  */
 class MediaSharing {
+    // Connect database
+    def dbConn = new DBAccess()
+    
     
 }
 
