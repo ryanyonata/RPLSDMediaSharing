@@ -25,9 +25,11 @@ def name2 = 'Ryan2'
 
 
 login user username 'ryanyonata' password 'password'
+getID user username 'ryanyonata'
 register user username 'adarwawan' password 'adalah123' email 'adarwawan@gmail.com' name 'Ahmad Darmawan'
 vote media id 1 by_user 1 value -1
 comment media id 1 content 'sia maneh' by_user 2
+
 
 // DSL 1 : Login
 def login(user) {
@@ -72,4 +74,13 @@ def comment(media) {
 			}]
 		}]
 	}]
+}
+
+// DSL 5 : Get User ID
+def getID(user) {
+    [username: { uname ->
+        def idx = user.getIdByUname(uname)
+        println idx
+        return idx
+    }]
 }

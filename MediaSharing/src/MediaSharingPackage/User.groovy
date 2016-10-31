@@ -58,4 +58,8 @@ class User {
         }	
         sql.close()
     }
+    
+    def getIdByUname(username) {
+        return sql.rows("SELECT id FROM user WHERE username="+string(username))[0].'id'
+    }
 }

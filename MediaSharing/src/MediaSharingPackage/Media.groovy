@@ -43,7 +43,6 @@ class Media {
             sql.rollback() 
             println("Transaction rollback")
         }	
-        sql.close()
     }
     
     def voteMedia(media,user,value) {
