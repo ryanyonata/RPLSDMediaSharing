@@ -43,4 +43,19 @@ class User {
             return "Password Invalid"
         }
     }
+    
+    def addUser(username,password,email,name) {
+        sql.connection.autoCommit = false
+        def sqlstr = "INSERT INTO user(username,password,email,name) VALUES " + "(${string(username)},${string(password)},${string(email)},${string(name)})"
+	    
+        try {
+            sql.execute(sqlstr);
+            sql.commit()
+            println("Successfully committed")
+        }catch(Exception ex) {
+            sql.rollback() 
+            println("Transaction rollback")
+        }	
+        sql.close()
+    }
 }

@@ -25,6 +25,9 @@ def name2 = 'Ryan2'
 
 
 login user username 'ryanyonata' password 'password'
+register user username 'adarwawan' password 'adalah123' email 'adarwawan@gmail.com' name 'Ahmad Darmawan'
+vote media id 1 by_user 1 value -1
+comment media id 1 content 'sia maneh' by_user 2
 
 // DSL 1 : Login
 def login(user) {
@@ -52,11 +55,20 @@ def register(user) {
 // DSL 3 : Vote media
 def vote(media) {
 	[id: { id_media ->
-		[by: { uname ->
+		[by_user: { id_user ->
 			[value: { value ->
-				def user = new User(uname)
-				def id = user.getIdByUname()
-				media.vote(id_media, id, value)
+				media.voteMedia(id_media, id_user, value)
+			}]
+		}]
+	}]
+}
+
+// DSL 4 : Comment
+def comment(media) {
+	[id: { id_media ->
+		[content: { content ->
+			[by_user: { id_user ->
+				media.addComment(id_media, content, id_user)
 			}]
 		}]
 	}]

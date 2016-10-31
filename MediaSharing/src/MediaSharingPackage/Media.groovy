@@ -48,7 +48,7 @@ class Media {
     
     def voteMedia(media,user,value) {
         sql.connection.autoCommit = false
-        def sqlstr = "INSERT INTO vote(id_media,value,id_user) VALUES " + "(${media}, ${string(value)}, ${user})"
+        def sqlstr = "INSERT INTO vote(id_media,votevalue,id_user) VALUES " + "(${media}, ${value}, ${user})"
 	  
         try {
             sql.execute(sqlstr);
@@ -57,8 +57,7 @@ class Media {
         }catch(Exception ex) {
             sql.rollback() 
             println("Transaction rollback")
-        }	
-        sql.close()
+        }
     }
     
     def upload(title,user,filesize,url,accesstype,category,album) {
