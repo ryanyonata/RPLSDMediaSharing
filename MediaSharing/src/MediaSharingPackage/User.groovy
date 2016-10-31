@@ -26,5 +26,17 @@ class User {
     def string(str) {
         return "\"" + str + "\"";
     }
+    
+        def login(username, password){
+        String response = ""
+        response = sql.rows("SELECT password FROM user WHERE username="+username)
+        if (response == "") {
+            return "Username Invalid";
+        } else if (response == password){
+            return "Login Succes"
+        } else {
+            return "Password Invalid"
+        }
+    }
 }
 

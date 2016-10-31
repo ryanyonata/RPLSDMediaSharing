@@ -76,5 +76,15 @@ class Media {
     def string(str) {
         return "\"" + str + "\"";
     }
+    
+    def getMediaCategory (media_id) {
+        category_id = sql.rows("SELECT id_category FROM media WHERE id="+media_id)
+        return sql.rows("SELECT name FROM category WHERE id="+category_id)
+    }
+    
+    def getMediaAlbum (media_id) {
+        album_id = sql.rows("SELECT id_album FROM media WHERE id="+media_id)
+        return sql.rows("SELECT title FROM album WHERE id="+album_id)
+    }
 }
 
