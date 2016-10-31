@@ -19,5 +19,4 @@ def password = '"password2"'
 def name2 = '"Ryan2"'
 
 def a = dbConn.addUser(username,password,email,name2)
-
 println a

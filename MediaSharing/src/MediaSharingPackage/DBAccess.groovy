@@ -79,5 +79,20 @@ class DBAccess {
     def getComment(media) {
         return sql.rows("SELECT * FROM comment WHERE comment.id_media="+media)
     }
+    
+    def upload(title,user,filesize,url,accesstype,category,album) {
+        sql.connection.autoCommit = false
+        def sqlstr = "INSERT INTO media(title,id_user,file_size,url,id_accesstype,id_category,id_album) VALUES " + "(${title}, ${user}, ${filesize}, ${url}, ${accesstype}, ${category}, ${album})"
+	  
+        try {
+            sql.execute(sqlstr);
+            sql.commit()
+            println("Successfully committed")
+        }catch(Exception ex) {
+            sql.rollback() 
+            println("Transaction rollback")
+        }	
+        sql.close()
+    }
 }
 
