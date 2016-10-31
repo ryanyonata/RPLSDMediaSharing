@@ -48,7 +48,7 @@ class DBAccess {
     
     def voteMedia(media,user,value) {
         sql.connection.autoCommit = false
-        def sqlstr = "INSERT INTO vote(id_media,value,id_user) VALUES " + "(${media}, ${user}, ${value})"
+        def sqlstr = "INSERT INTO vote(id_media,value,id_user) VALUES " + "(${media}, ${string(value)}, ${user})"
 	  
         try {
             sql.execute(sqlstr);
@@ -63,7 +63,7 @@ class DBAccess {
     
     def addComment(media,content,user) {
         sql.connection.autoCommit = false
-        def sqlstr = "INSERT INTO comment(id_media,comment_content,id_user) VALUES " + "(${media}, ${content}, ${user})"
+        def sqlstr = "INSERT INTO comment(id_media,comment_content,id_user) VALUES " + "(${media}, ${string(content)}, ${user})"
 	  
         try {
             sql.execute(sqlstr);
@@ -82,7 +82,7 @@ class DBAccess {
     
     def upload(title,user,filesize,url,accesstype,category,album) {
         sql.connection.autoCommit = false
-        def sqlstr = "INSERT INTO media(title,id_user,file_size,url,id_accesstype,id_category,id_album) VALUES " + "(${title}, ${user}, ${filesize}, ${url}, ${accesstype}, ${category}, ${album})"
+        def sqlstr = "INSERT INTO media(title,id_user,file_size,url,id_accesstype,id_category,id_album) VALUES " + "(${string(title)}, ${user}, ${filesize}, ${string(url)}, ${accesstype}, ${category}, ${album})"
 	  
         try {
             sql.execute(sqlstr);
